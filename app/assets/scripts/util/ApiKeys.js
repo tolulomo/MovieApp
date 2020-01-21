@@ -9,6 +9,6 @@ if(process.env.NODE_ENV === 'production'){
     const key = require('../../../../apiKey');
     // run local keys
     module.exports = {
-        apiKey: key
+        apiKey: key.key
     }
 }

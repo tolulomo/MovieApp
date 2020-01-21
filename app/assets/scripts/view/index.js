@@ -62,7 +62,7 @@ class MovieApp extends Component {
         return (
             timer = setTimeout(async() => {
                 
-                const movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Key.apiKey.key}&query=${input.value}&page=${this.state.searchPage}`);
+                const movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Key.apiKey}&query=${input.value}&page=${this.state.searchPage}`);
                 if(movies.status === 200) {
                     const result = await movies.json();
                     return this.setState({ searchData:result, searchValue:input.value, loading: false })
@@ -75,9 +75,9 @@ class MovieApp extends Component {
     callApi = async() => {
         let movies;
         if(this.state.search){
-            movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Key.apiKey.key}&query=${this.state.searchValue}&page=${this.state.searchPage}`);
+            movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Key.apiKey}&query=${this.state.searchValue}&page=${this.state.searchPage}`);
         }else {
-            movies = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${Key.apiKey.key}&language=en-US&page=${this.state.page}`);
+            movies = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${Key.apiKey}&language=en-US&page=${this.state.page}`);
         }
         if(movies.status === 200) {
             const result = await movies.json();
