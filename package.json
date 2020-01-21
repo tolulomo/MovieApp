@@ -9,6 +9,7 @@
   "description": "Movies playing in theater",
   "main": "app.js",
   "scripts": {
+    "start": "node index.js",
     "devServer": "webpack-dev-server",
     "build": "webpack",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
