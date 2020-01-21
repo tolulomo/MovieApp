@@ -1,57 +1,23 @@
-const http = require('http');
-const debug = require('debug')('server-logger');
-const app = require('./server/index');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-/*==========================
- Check if port is valid 
- ===========================*/
-const portNumberChecker = val => {
-  const port = parseInt(val, 10);
-  if(isNaN(port)){
-    return val;
-  }
-  if(port >= 0){
-    return port;
-  }
-  return false;
+const app = express();
+
+app.use(bodyParser.json());
+
+
+if (process.env.NODE_ENV === 'production') {
+  // Express will serve up production assets
+  // like our main.js file, or main.css file!
+  app.use(express.static('docs'));
+
+  // Express will serve up the index.html file
+  // if it doesn't recognize the route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'docs', 'index.html'));
+  });
 }
 
-const onError = error => {
-  if (error.syscall !== "listen") {
-    throw error;
-  }
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
-  switch (error.code) {
-    case "EACCES":
-      console.error(bind + " requires elevated privileges");
-      process.exit(1);
-      break;
-    case "EADDRINUSE":
-      console.error(bind + " is already in use");
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-};
-
-/*============================
- Listening on incoming request
-==============================*/
-const onListening = () => {
-    console.log('...listening')
-  server.address();
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
-  debug("Listening on " + bind);
-};
-
-/*===========================
- Port Number Config
-=============================*/
-const port = portNumberChecker(process.env.PORT || "4000");
-
-app.set('port', port)
-const server = http.createServer(app);
-server.on("error", onError);
-server.on("listening", onListening);
-server.listen(port);
+const PORT = process.env.PORT || 5500;
+app.listen(PORT);
