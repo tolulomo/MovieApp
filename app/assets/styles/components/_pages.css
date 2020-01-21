@@ -1,0 +1,109 @@
+.main {
+    z-index: 10;
+    &__container {
+        width: 100%;
+    }
+}
+
+.list-item {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15), 0 3px 3px rgba(0,0,0,0.1);
+    max-width: 100%;
+
+    @mixin atMedium {
+        max-width: 16.3006rem;
+    } 
+
+    &--divider {
+        margin: 0 auto;
+        display: block;
+        width: 10rem;
+        margin-bottom: .4rem;
+        border-bottom: 1px solid $dividerColor;
+
+        @mixin atMedium {
+            margin-bottom: .2rem;
+            width: 7rem;
+        } 
+    }
+
+    &--header {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 3px 3px rgba(0,0,0,0.24);
+        max-width: 100%;
+        height: 1rem;
+        background-color: $darkPrimaryColor;
+
+        @mixin atMedium {
+            max-width: 16.3006rem;
+        } 
+    }
+
+    &--container {
+        transition: all .8s ease;
+        height: 20rem;
+
+        @mixin atMedium {
+            height: 19rem;
+        } 
+
+        &-header {
+            height: 10rem;
+            background-color: $primaryColor;
+            position: relative;
+            overflow: hidden;
+
+            &-title {
+                position: absolute;
+                top: 50%;
+                right: 5%;
+                width: 56%;
+                text-transform: uppercase;
+                text-align: right;
+                font-weight: 300;
+                line-height: 1.6;
+                color: $accentColor;
+                
+            }
+
+            &-text {
+                background-image: linear-gradient(to right bottom, 
+                rgba($darkPrimaryColor, .85), 
+                rgba($primaryColor, .85));
+                padding: .4rem .8rem;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+        }
+
+        &-inside {
+            font-size: .8rem;
+            padding: .8rem;
+            font-weight: 300;
+
+            div {
+                text-align: center;
+                line-height: 1.2;
+                color: $secondaryTextColor;
+                margin-bottom: .8rem;
+                span {
+                    display: block;
+                    font-size: .7rem;
+                    font-weight: 500;
+                    color: $darkPrimaryColor;
+
+                    @mixin atMedium {
+                        font-size: .4rem;
+                    } 
+                }
+
+                &:not(:last-child) {
+                    padding: .1rem 0 .4rem 0;
+                    margin-bottom: .2rem;
+
+                    @mixin atMedium {
+                        margin-bottom: .1rem;
+                    } 
+                }
+            }
+        }
+    }
+}

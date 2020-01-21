@@ -1,0 +1,25 @@
+.wrapper {
+    padding-left: 1.1875rem;
+    padding-right: 1.1875rem;
+    max-width: 77.375rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    &--header {
+        max-width: 80rem;
+    }
+
+}
+
+.hide {
+    visibility: hidden;
+    display: none;
+}
+
+.insert-tm {
+    margin-top: 1rem;
+}
+
+.centralize {
+    text-align: center;
+}

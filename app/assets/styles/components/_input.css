@@ -1,0 +1,52 @@
+.input {
+    &--textbox {
+        font-size: 1rem;
+        font-family: inherit;
+        font-weight: 300;
+        color: $primaryTextColor;
+        padding: 1rem 1.4rem 1rem 1rem;
+        border-radius: 2px;
+        background-color: rgba($text, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 112%;
+        display: block;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($secondaryTextColor, .1);
+            border-bottom: 3px solid $accentColor;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $lightPrimaryColor;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $secondaryTextColor;
+        }
+
+        @mixin atMedium {
+            padding: 1rem 1.5rem;
+            width: 120%;
+        }
+    }
+
+    &--label {
+        color: $primaryTextColor;
+        font-size: .8rem;
+        font-weight: 300;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    &--textbox:placeholder-shown + &--label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+   
+}
