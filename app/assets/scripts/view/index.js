@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import debounce from 'lodash/debounce';
 import Header from './Header';
 import MainPage from './Main'
 import Footer from './Footer';
