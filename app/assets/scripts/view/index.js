@@ -86,8 +86,8 @@ class MovieApp extends Component {
     }
 
     render() {
-        const content = this.state.search ? this.state.searchData : this.state.data;
-        const currPage = this.state.search ? this.state.searchPage : this.state.page;
+        const content = this.state.search && this.state.searchData !== null ? this.state.searchData : this.state.data;
+        const currPage = this.state.search && this.state.searchData !== null ? this.state.searchPage : this.state.page;
         return(
             <Fragment>
                 <Header searchMovies={this.searchMovies} searchValue={this.state.searchValue} dsf={this.dsf}/>
