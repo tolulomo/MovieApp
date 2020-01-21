@@ -1,4 +1,4 @@
-const https = require('https');
+const http = require('http');
 const debug = require('debug')('server-logger');
 const app = require('./server/index');
 
