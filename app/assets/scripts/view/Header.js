@@ -11,7 +11,7 @@ class Header extends Component {
             <header>
                 <div className="header">
                     <div className="wrapper wrapper--header">
-                        <div className="header__title">
+                        <div className="header__title" onClick={this.showSearchBox}>
                             <div className="header__title--main">KM Movie</div>
                             <div className="header__title--sub">...a code challenge</div>
                         </div>

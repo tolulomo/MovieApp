@@ -63,8 +63,15 @@
     }
 
     &__searchbox {
-        margin-top: .5rem;
-        float: right;
+        position: absolute;
+        right: 0;
+        top: .5rem;
         z-index: 0;
+
+        @mixin atMedium {
+            margin-top: .5rem;
+            position: relative;
+            float: right;
+        }
     }
 }
