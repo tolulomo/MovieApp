@@ -16,11 +16,11 @@ In regards to the performance issue, this stems from using a thirdparty fonts re
 Since its a small application, no external state management library was used. All the application assets resides in the app folder and splitted into three main part:
 
 ## Application Logic
-> Images: This folder contains the loader svg a photo used during dev
-> Script: This folder contains all the JS code written for the app
-> Styles: This contains all the styling code written for the app
+* Images: This folder contains the loader svg a photo used during dev
+* Script: This folder contains all the JS code written for the app
+* Styles: This contains all the styling code written for the app
 
 ## Other Info
-The app was set up to deploy to heroku cloud servers
+> The app was set up to deploy to heroku cloud servers
 
 
