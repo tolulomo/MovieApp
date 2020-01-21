@@ -5,20 +5,15 @@ import Footer from './Footer';
 import Key from '../util/ApiKeys';
 
 class MovieApp extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-          loading: true,
-          data: null,
-          error: false,
-          page: 1,
-          searchData: null,
-          searchValue: null,
-          search: false,
-          searchPage: 1
-        }
-
-        this.paging = this.paging.bind (this);
+    state = {
+        loading: true,
+        data: null,
+        error: false,
+        page: 1,
+        searchData: null,
+        searchValue: null,
+        search: false,
+        searchPage: 1
     }
 
     async componentDidMount(){
@@ -34,16 +29,15 @@ class MovieApp extends Component {
             }
         } else {
             if(this.state.search) {
-                this.setState({loading:true, searchPage: this.state.searchPage+1 > y ? this.state.searchPage: this.state.searchPage++})
+                this.setState({loading:true, searchPage: this.state.searchPage+1 > y ? this.state.searchPage: this.state.searchPage+1})
             } else {
-                this.setState({loading:true, page: this.state.page+1 > y ? this.state.page: this.state.page++})
+                this.setState({loading:true, page: this.state.page+1 > y ? this.state.page: this.state.page+1})
             }
         }
         return await this.callApi();
     }
 
     dsf = () => {
-        console.log('sooooooo')
         if(this.state.search) {
             return this.setState({search:false, searchValue:null, loading:false});
         } else {
@@ -86,8 +80,9 @@ class MovieApp extends Component {
     }
 
     render() {
+        console.log(this.state.page);
         const content = this.state.search && this.state.searchData !== null ? this.state.searchData : this.state.data;
-        const currPage = this.state.search && this.state.searchData !== null ? this.state.searchPage : this.state.page;
+        const currPage = this.state.search ? this.state.searchPage : this.state.page;
         return(
             <Fragment>
                 <Header searchMovies={this.searchMovies} searchValue={this.state.searchValue} dsf={this.dsf}/>

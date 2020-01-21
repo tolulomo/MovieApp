@@ -3,7 +3,12 @@ import React, { Component } from 'react';
 class Header extends Component {
     showSearchBox = () => {
         this.props.dsf();
-        return document.querySelector(".header__searchbox").classList.toggle("hide");
+        document.querySelector(".header__searchbox").classList.toggle("hide");
+        const searchExist = document.querySelector(".hide");
+        if(searchExist === null) {
+            return alert("Click on logo when done to cancel search");
+        }
+        return;
     }
 
     render() {

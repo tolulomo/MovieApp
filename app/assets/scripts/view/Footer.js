@@ -11,7 +11,7 @@ class Footer extends Component {
                 </footer>
             )    
         }
-        const totalPages = Math.floor(this.props.total.total_results/20);
+        const totalPages = this.props.total.total_pages;
         return (
             <footer>
                 <div className="wrapper insert-tm centralize">
