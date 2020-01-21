@@ -61,7 +61,7 @@ class MovieApp extends Component {
         clearTimeout(timer);
         return (
             timer = setTimeout(async() => {
-                
+                console.log(Key.apiKey)
                 const movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Key.apiKey}&query=${input.value}&page=${this.state.searchPage}`);
                 if(movies.status === 200) {
                     const result = await movies.json();
@@ -73,6 +73,7 @@ class MovieApp extends Component {
     }
 
     callApi = async() => {
+        console.log(Key.apiKey);
         let movies;
         if(this.state.search){
             movies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${Key.apiKey}&query=${this.state.searchValue}&page=${this.state.searchPage}`);
