@@ -20,7 +20,7 @@
   "author": "Tolulomo Fateye",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "lazysizes": "^5.2.0-beta1",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
